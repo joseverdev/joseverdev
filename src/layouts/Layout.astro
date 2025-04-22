@@ -1,22 +1,175 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>joseverdev</title>
+ 
+  </head>
+  <body>
+    <Nav />
+
+    <slot />
+    <Footer />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<script defer>
+  const theme = localStorage.getItem("darkmode");
+  if (theme === "true") {
+    changeTheme();
+  } else {
+    localStorage.setItem("darkmode", "false");
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const $btnDarkMode = document.getElementById("darkmode");
+    $btnDarkMode.addEventListener("click", () => {
+      const darkmode = localStorage.getItem("darkmode");
+      if (darkmode === "true") {
+        localStorage.setItem("darkmode", "false");
+        changeTheme();
+      } else {
+        localStorage.setItem("darkmode", "true");
+        changeTheme();
+      }
+    });
+
+  });
+  function changeTheme() {
+    const $container = document.querySelector(".container");
+    document.querySelector(".moon").classList.toggle("none");
+    document.querySelector(".sun").classList.toggle("none");
+
+    $container.classList.toggle("darktheme");
+    document.querySelectorAll("button").forEach((button) => {
+      button.classList.toggle("bg-dark");
+    });
+    document.querySelectorAll(".links").forEach((link) => {
+      link.classList.toggle("shadow-dark");
+    });
+    document.querySelectorAll(".project").forEach((project) => {
+      project.classList.toggle("project-dark");
+    });
+    document.querySelectorAll(".post").forEach((post) => {
+      post.classList.toggle("post-dark");
+    });
+    document.querySelectorAll(".tags").forEach((text) => {
+      text.classList.toggle("tags-dark");
+    });
+  }
+</script>
+
+<style is:global>
+  :root {
+    --background-light: #d8d0be;
+    --background-dark: #2a2622;
+    --text-dark: #27241e;
+    --text-light: #fcfbf2;
+    --beige: #d4c8b6;
+    --beige-dark: #c9baa4;
+    --orange: #e5a148;
+
+    --text-darktheme: #c5a360;
+    --bg-darktheme: #35322c;
+    --bg-hover-darktheme: #453f3a;
+  }
+  .none {
+    display: none;
+  }
+  .container {
+    max-width: 720px;
+    margin: auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    background-color: var(--background-light);
+    transition: all 0.3s ease;
+  }
+
+  .darktheme {
+    background-color: var(--background-dark);
+    color: var(--text-darktheme);
+  }
+
+  button:hover {
+    outline: 1px solid var(--text-dark);
+    color: var(--text-dark);
+    background-color: var(--orange);
+  }
+  .buttons svg {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+
+  html,
+  body {
+    font-family: "Libre Baskerville", serif;
+    background-color: var(--background-dark);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    /* height: 100%; */
+    color: var(--text-dark);
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 32px 0;
+  }
+  p {
+    font-size: 16px;
+  }
+  button {
+    border: none;
+    border-radius: 16px;
+    padding: 8px 16px;
+    color: var(--text-light);
+    font-size: 16px;
+    background-color: var(--background-dark);
+  }
+
+  .bg-dark {
+    /* outline: 1px solid var(--orange); */
+    /* outline-offset: -2px; */
+    background-color: var(--beige-dark);
+    color: var(--text-dark);
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  main {
+    text-align: center;
+    margin: auto;
+    min-width: 368px;
+    max-width: 90%;
+    padding-top: 16px;
+  }
 </style>

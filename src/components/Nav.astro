@@ -1,0 +1,135 @@
+<nav>
+  <div class="navlist">
+    <li class="">
+      <a href="/">Inicio</a>
+    </li>
+    <li>
+      <a href="/blog">Blog</a>
+    </li>
+    <!-- <li>
+      <a href="#">Contacto</a>
+    </li> -->
+    <button class="theme-button" id="darkmode">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="moon none icon icon-tabler icons-tabler-outline icon-tabler-moon"
+        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+          d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+        ></path></svg
+      >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="sun icon icon-tabler icons-tabler-outline icon-tabler-sun"
+        ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+          d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path
+          d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+        ></path></svg
+      >
+    </button>
+  </div>
+</nav>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded',()=> {
+    const path = window.location.pathname;
+    console.log(path);
+    if(path === '/'){
+      document.querySelector('.navlist li:nth-child(1)').classList.add('active');
+    }else if(path === '/blog'){
+      document.querySelector('.navlist li:nth-child(2)').classList.add('active');
+    }
+  })
+</script>
+
+<style>
+  .navlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+    list-style: none;
+    position: relative;
+  }
+  .theme-button {
+    outline: none;
+    background-color: transparent;
+    color: var(--text-dark);
+    cursor: pointer;
+    text-align: right;
+    position: absolute;
+    right: 0;
+  }
+  nav {
+    color: var(--text-dark);
+    background-color: var(--orange);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 48px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+  ul {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+  li {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  li:hover {
+    border-bottom: 6px solid var(--background-dark);
+  }
+  a {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .active {
+    border-bottom: 6px solid var(--background-dark);
+  }
+  @media (min-width: 720px) {
+    nav {
+      height: 24px;
+      padding: 8px;
+      position: initial;
+      max-width: 720px;
+      margin: auto;
+      margin-top: 24px;
+      border-radius: 16px;
+    }
+    ul {
+      width: 720px;
+    }
+
+    li:hover {
+      border-bottom: 2px solid var(--background-dark);
+    }
+
+    .active {
+      border-bottom: 2px solid var(--background-dark);
+    }
+  }
+</style>
