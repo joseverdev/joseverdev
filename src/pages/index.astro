@@ -1,14 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import perfil from "../assets/perfil-sm.webp";
-import project from "../assets/project.png";
+import tablaCosteo from "../assets/tabla-costeo.webp";
 import Project from "../components/Project.astro";
 import About from "../components/About.astro";
 ---
 
 <Layout>
-  <!-- <Welcome /> -->
-  <!-- <nav></nav> -->
   <div class="container">
     <main class="">
       <div class="presentation-container">
@@ -153,12 +151,12 @@ import About from "../components/About.astro";
         <h2>Mis proyectos</h2>
         <div class="projects__container">
           <Project 
-            img={project.src} 
-            title="TodoList"
-            description="Simple todo-list app que te permite gestionar tus tareas"
-            tags={["React", "Tailwindcss"]}
+            img={tablaCosteo.src} 
+            title="Tabla de Costeo"
+            description="Verifica el costo de los ingredientes y empaques de tus recetas, calcula el valor real de tu producto y dependiendo del precio de venta, calcula el margen de ganancia."
+            tags={["React","React-router",  "Tailwindcss"]}
             repo="https://github.com/joseverdev/tabla-costeo" 
-            web="https://joseverdev.github.io/tabla-costeo/"
+            web="https://tabla-costeo.netlify.app/"
           />
 
           <!-- <article class="project">
