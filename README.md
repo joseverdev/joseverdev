@@ -2,7 +2,7 @@
 
 Bienvenido a mi perfil de GitHub. Soy un desarrollador **junior** apasionado por la tecnología, enfocado en **frontend** y actualmente expandiendo mis habilidades hacia el **backend** para convertirme en **desarrollador Fullstack**.
 
-Visita mi web **https://josverdev.netlify.app**
+Visita mi web **https://joseverdev.netlify.app**
 
 Contactame **jmu3612@gmail.com**
 
