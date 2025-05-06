@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import perfil from "../assets/perfil-sm.webp";
 import tablaCosteo from "../assets/tabla-costeo.webp";
+import task from "../assets/task.webp";
 import Project from "../components/Project.astro";
 import About from "../components/About.astro";
 ---
@@ -154,9 +155,16 @@ import About from "../components/About.astro";
             img={tablaCosteo.src} 
             title="Tabla de Costeo"
             description="Verifica el costo de los ingredientes y empaques de tus recetas, calcula el valor real de tu producto y dependiendo del precio de venta, calcula el margen de ganancia."
-            tags={["React","React-router",  "Tailwindcss"]}
+            tags={["React","React-Router",  "Tailwind CSS"]}
             repo="https://github.com/joseverdev/tabla-costeo" 
             web="https://tabla-costeo.netlify.app/"
+          />
+          <Project 
+            img={task.src} 
+            title="Task"
+            description="Aplicación de tareas que te permite gestionar tus tareas, agregar, eliminar y marcar como completadas."
+            tags={["Next.js","Node.js", "SQL"]}
+            repo="https://github.com/joseverdev/task" 
           />
 
           <!-- <article class="project">
@@ -257,6 +265,12 @@ import About from "../components/About.astro";
     height: 28px;
     vertical-align: middle;
     margin-left: 8px;
+  }
+
+  .projects__container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   @media (min-width: 720px) {
