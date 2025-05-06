@@ -10,10 +10,10 @@
       />
     </a>
     <li class="">
-      <a href="/">Inicio</a>
+      <a href="/" class="indexPath">Inicio</a>
     </li>
     <li>
-      <a href="/blog">Blog</a>
+      <a href="/blog" class="blogPath">Blog</a>
     </li>
     <button class="theme-button" id="darkmode">
       <svg
@@ -56,9 +56,9 @@
     const path = window.location.pathname;
     console.log(path);
     if(path === '/'){
-      document.querySelector('.navlist li:nth-child(1)').classList.add('active');
+      document.querySelector('.indexPath').classList.add('active');
     }else if(path === '/blog'){
-      document.querySelector('.navlist li:nth-child(2)').classList.add('active');
+      document.querySelector('.blogPath').classList.add('active');
     }
   })
 </script>
@@ -118,15 +118,13 @@
     justify-content: center;
     align-items: center;
   }
-  li:hover {
-    border-bottom: 6px solid var(--background-dark);
-  }
+ 
   a {
     font-size: 14px;
     font-weight: 700;
   }
   .active {
-    border-bottom: 6px solid var(--background-dark);
+    border-bottom: 2px solid var(--background-dark);
   }
 
 
@@ -144,7 +142,7 @@
       width: 720px;
     }
 
-    li:hover {
+    li:hover a:not(.active) {
       border-bottom: 2px solid var(--background-dark);
     }
 
