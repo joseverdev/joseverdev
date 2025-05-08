@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import perfil from "../assets/perfil-sm.webp";
 import tablaCosteo from "../assets/tabla-costeo.webp";
 import task from "../assets/task.webp";
+import platziMessage from "../assets/platzimessage.webp";
 import Project from "../components/Project.astro";
 import About from "../components/About.astro";
 ---
@@ -151,20 +152,33 @@ import About from "../components/About.astro";
       <section class="projects">
         <h2>Mis proyectos</h2>
         <div class="projects__container">
-          <Project 
-            img={tablaCosteo.src} 
+          <Project
+            img={tablaCosteo.src}
             title="Tabla de Costeo"
             description="Verifica el costo de los ingredientes y empaques de tus recetas, calcula el valor real de tu producto y dependiendo del precio de venta, calcula el margen de ganancia."
-            tags={["React","React-Router",  "Tailwind CSS"]}
-            repo="https://github.com/joseverdev/tabla-costeo" 
+            tags={["React", "React-Router", "Tailwind CSS"]}
+            repo="https://github.com/joseverdev/tabla-costeo"
             web="https://tabla-costeo.netlify.app/"
           />
-          <Project 
-            img={task.src} 
+          <Project
+            img={task.src}
             title="Task"
             description="Aplicación de tareas que te permite gestionar tus tareas, agregar, eliminar y marcar como completadas."
-            tags={["Next.js","Node.js", "SQL"]}
-            repo="https://github.com/joseverdev/task" 
+            tags={["Next.js", "Node.js", "SQL"]}
+            repo="https://github.com/joseverdev/task"
+          />
+          <Project
+            img={platziMessage.src}
+            title="PlatziMessage"
+            description="Aplicación de mensajería que permite a los usuarios enviar y recibir mensajes en tiempo real."
+            tags={[
+              "React",
+              "React-Router",
+              "Node.js",
+              "WebSockets",
+              "PostgreSQL",
+            ]}
+            repo="https://github.com/joseverdev/platzi-message"
           />
 
           <!-- <article class="project">
@@ -267,7 +281,7 @@ import About from "../components/About.astro";
     margin-left: 8px;
   }
 
-  .projects__container{
+  .projects__container {
     display: flex;
     flex-direction: column;
     gap: 16px;
