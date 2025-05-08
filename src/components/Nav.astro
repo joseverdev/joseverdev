@@ -1,13 +1,11 @@
 ---
+
 ---
+
 <nav>
   <div class="navlist">
     <a href="/" class="logo">
-      <img
-        src='/favicon.svg'
-        alt="Logo"
-        class="logo"
-      />
+      <img src="/favicon.svg" alt="Logo" class="logo" />
     </a>
     <li class="">
       <a href="/" class="indexPath">Inicio</a>
@@ -52,15 +50,15 @@
 </nav>
 
 <script defer>
-  document.addEventListener('DOMContentLoaded',()=> {
+  document.addEventListener("DOMContentLoaded", () => {
     const path = window.location.pathname;
     console.log(path);
-    if(path === '/'){
-      document.querySelector('.indexPath').classList.add('active');
-    }else if(path.startsWith('/blog')){
-      document.querySelector('.blogPath').classList.add('active');
+    if (path === "/") {
+      document.querySelector(".indexPath").classList.add("active");
+    } else if (path === "/blog" || path === "/blog/") {
+      document.querySelector(".blogPath").classList.add("active");
     }
-  })
+  });
 </script>
 
 <style>
@@ -83,11 +81,11 @@
     right: 0;
   }
 
-  .logo{
+  .logo {
     width: 40px;
     height: 40px;
     position: absolute;
-    cursor:pointer;
+    cursor: pointer;
     left: 0;
   }
   .logo img {
@@ -118,7 +116,7 @@
     justify-content: center;
     align-items: center;
   }
- 
+
   a {
     font-size: 14px;
     font-weight: 700;
@@ -126,7 +124,6 @@
   .active {
     border-bottom: 2px solid var(--background-dark);
   }
-
 
   @media (min-width: 720px) {
     nav {
