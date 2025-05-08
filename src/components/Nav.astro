@@ -57,7 +57,7 @@
     console.log(path);
     if(path === '/'){
       document.querySelector('.indexPath').classList.add('active');
-    }else if(path === '/blog'){
+    }else if(path.startsWith('/blog')){
       document.querySelector('.blogPath').classList.add('active');
     }
   })
