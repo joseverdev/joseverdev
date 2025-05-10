@@ -1,5 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
 ---
 
 <Layout>
@@ -7,6 +10,22 @@ import Layout from "../layouts/Layout.astro";
     <main>
       <h1>Ultimos posts</h1>
       <div class="posts-container">
+        {
+          posts.map((post) => (
+            <article class="post">
+              <a href={`/posts/${post.id}`}>
+                <div class="texts">
+                  <h2>{post.data.title}</h2>
+                  <div class="tags">
+                    {post.data.tags.map((tag) => (
+                      <span class="tag">#{tag} </span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))
+        }
         <article class="post">
           <div class="texts">
             <h2>La coersion en Javascript</h2>
@@ -17,7 +36,8 @@ import Layout from "../layouts/Layout.astro";
             </div>
           </div>
         </article>
-        <article class="post">
+
+        <!-- <article class="post">
           <div class="texts">
             <h2>La coersion en Javascript</h2>
             <div class="tags">
@@ -26,17 +46,7 @@ import Layout from "../layouts/Layout.astro";
               <span class="tag">#type</span>
             </div>
           </div>
-        </article>
-        <article class="post">
-          <div class="texts">
-            <h2>La coersion en Javascript</h2>
-            <div class="tags">
-              <span class="tag">#javascript</span>
-              <span class="tag">#coersion</span>
-              <span class="tag">#type</span>
-            </div>
-          </div>
-        </article>
+        </article> -->
       </div>
     </main>
   </div>
@@ -47,17 +57,16 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <style>
-  h1{
+  h1 {
     margin-bottom: 32px;
   }
   h2 {
     text-align: left;
     margin: 8px;
   }
-  
+
   .container {
     min-height: 80vh;
-
   }
   .posts-container {
     display: flex;
@@ -72,7 +81,7 @@ import Layout from "../layouts/Layout.astro";
     transition: all 0.3s ease;
     background-color: var(--background);
   }
-  
+
   .post-dark {
     background-color: var(--bg-darktheme);
     color: var(--text-darktheme);
@@ -90,7 +99,6 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .texts {
-    
     margin: auto;
     width: 90%;
     text-align: left;
@@ -109,7 +117,7 @@ import Layout from "../layouts/Layout.astro";
   .tag {
     font-size: 14px;
   }
-  .tags-dark{
+  .tags-dark {
     color: var(--text-dark);
   }
 </style>
