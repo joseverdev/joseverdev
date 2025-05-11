@@ -22,7 +22,7 @@ import Head from "../components/Head.astro";
   } else {
     localStorage.setItem("darkmode", "false");
   }
-  
+
   document.addEventListener("DOMContentLoaded", () => {
     const $btnDarkMode = document.getElementById("darkmode");
     $btnDarkMode.addEventListener("click", () => {
@@ -35,7 +35,6 @@ import Head from "../components/Head.astro";
         changeTheme();
       }
     });
-
   });
   function changeTheme() {
     const $container = document.querySelector(".container");
@@ -82,10 +81,12 @@ import Head from "../components/Head.astro";
     max-width: 720px;
     margin: auto;
     margin-top: 24px;
-    margin-bottom: 24px;
+    padding-bottom: 16px;
     border-radius: 16px;
     background-color: var(--background-light);
     transition: all 0.3s ease;
+    line-height: 1.6;
+
   }
 
   .darktheme {
@@ -116,6 +117,8 @@ import Head from "../components/Head.astro";
     /* height: 100%; */
     color: var(--text-dark);
   }
+
+
 
   h1 {
     font-size: 24px;
@@ -157,7 +160,18 @@ import Head from "../components/Head.astro";
     text-align: center;
     margin: auto;
     min-width: 368px;
-    max-width: 90%;
-    padding-top: 16px;
+    max-width: 720px;
+    padding: 16px 16px 0px;
+    
   }
+
+  .img-container img {
+    width: 100%;
+  }
+  pre{
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+
 </style>

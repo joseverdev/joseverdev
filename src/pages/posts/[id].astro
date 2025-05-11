@@ -1,5 +1,12 @@
 ---
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
+import { render } from "astro:content";
+
+import Layout from "../../layouts/Layout.astro";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -10,10 +17,17 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-console.log(post);
+const { Content } = await render(post);
 ---
 
+<Layout>
+  <main class="container">
+    <Content />
+  </main>
+</Layout>
 
-<div>
-  <h2>Pagina de test</h2>
-</div>
+<style>
+  main {
+    text-align: left;
+ }
+</style>
