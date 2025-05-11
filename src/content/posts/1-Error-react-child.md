@@ -7,7 +7,7 @@ tags: ["React", "React-Router", "Errores-Comunes", "Debugging"]
 Al momento de renderizar un componente en React, me apareció este error:
 
 <div class='img-container'>
-  <img  src='/public/images/blog/post-1/error-react-function-child.webp' />
+  <img  src='/images/blog/post-1/error-react-function-child.webp' />
 </div>
 
 En español: Advertencia: Las funciones no son válidas como elementos hijos de React. Esto puede ocurrir si retornas un componente en lugar de `<Componente />` desde el render. O tal vez querías llamar a esta función en lugar de retornarla.
