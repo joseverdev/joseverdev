@@ -61,6 +61,14 @@ import Head from "../components/Head.astro";
 </script>
 
 <style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   :root {
     --background-light: #d8d0be;
     --background-dark: #2a2622;
@@ -86,7 +94,6 @@ import Head from "../components/Head.astro";
     background-color: var(--background-light);
     transition: all 0.3s ease;
     line-height: 1.6;
-
   }
 
   .darktheme {
@@ -106,19 +113,16 @@ import Head from "../components/Head.astro";
     margin-left: 8px;
   }
 
-  html,
+  html {
+    width: fit-content;
+    margin: auto;
+  }
   body {
     font-family: "Libre Baskerville", serif;
     background-color: var(--background-dark);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     width: 100%;
-    /* height: 100%; */
     color: var(--text-dark);
   }
-
-
 
   h1 {
     font-size: 24px;
@@ -141,8 +145,6 @@ import Head from "../components/Head.astro";
   }
 
   .bg-dark {
-    /* outline: 1px solid var(--orange); */
-    /* outline-offset: -2px; */
     background-color: var(--beige-dark);
     color: var(--text-dark);
   }
@@ -159,19 +161,16 @@ import Head from "../components/Head.astro";
   main {
     text-align: center;
     margin: auto;
-    min-width: 368px;
+    min-width: 300px;
     max-width: 720px;
     padding: 16px 16px 0px;
-    
   }
 
   .img-container img {
     width: 100%;
   }
-  pre{
+  pre {
     padding: 2rem;
     border-radius: 1rem;
   }
-
-
 </style>
