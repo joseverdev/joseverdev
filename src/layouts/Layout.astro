@@ -19,8 +19,14 @@ import Head from "../components/Head.astro";
   const theme = localStorage.getItem("darkmode");
   if (theme === "true") {
     changeTheme();
+    document
+      .getElementById("darkmode")
+      .setAttribute("aria-label", "Activar tema claro");
   } else {
     localStorage.setItem("darkmode", "false");
+    document
+      .getElementById("darkmode")
+      .setAttribute("aria-label", "Activar tema oscuro");
   }
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -30,9 +36,15 @@ import Head from "../components/Head.astro";
       if (darkmode === "true") {
         localStorage.setItem("darkmode", "false");
         changeTheme();
+        document
+          .getElementById("darkmode")
+          .setAttribute("aria-label", "Activar tema oscuro");
       } else {
         localStorage.setItem("darkmode", "true");
         changeTheme();
+        document
+          .getElementById("darkmode")
+          .setAttribute("aria-label", "Activar tema claro");
       }
     });
   });
