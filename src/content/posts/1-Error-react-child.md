@@ -1,5 +1,5 @@
 ---
-title: "Error: Functions are not valid as a React child"
+title: 'Guia para dar solucion al error "Functions are not valid as a React child"'
 tags: ["React", "React-Router", "Errores-Comunes", "Debugging"]
 ---
 # Error: Functions are not valid as a React child
