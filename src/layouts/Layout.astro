@@ -9,7 +9,6 @@ import Head from "../components/Head.astro";
   <Head />
   <body>
     <Nav />
-
     <slot />
     <Footer />
   </body>
@@ -54,7 +53,7 @@ import Head from "../components/Head.astro";
     document.querySelector(".sun").classList.toggle("none");
 
     $container.classList.toggle("darktheme");
-    document.querySelectorAll("button").forEach((button) => {
+    document.querySelectorAll(".button").forEach((button) => {
       button.classList.toggle("bg-dark");
     });
     document.querySelectorAll(".links").forEach((link) => {
@@ -113,11 +112,6 @@ import Head from "../components/Head.astro";
     color: var(--text-darktheme);
   }
 
-  button:hover {
-    outline: 1px solid var(--text-dark);
-    color: var(--text-dark);
-    background-color: var(--orange);
-  }
   .buttons svg {
     width: 24px;
     height: 24px;
@@ -147,13 +141,19 @@ import Head from "../components/Head.astro";
   p {
     font-size: 16px;
   }
-  button {
+
+  .button {
     border: none;
     border-radius: 16px;
     padding: 8px 16px;
     color: var(--text-light);
     font-size: 16px;
     background-color: var(--background-dark);
+  }
+  .button:hover {
+    outline: 1px solid var(--text-dark);
+    color: var(--text-dark);
+    background-color: var(--orange);
   }
 
   .bg-dark {
@@ -170,6 +170,9 @@ import Head from "../components/Head.astro";
     text-decoration: none;
     color: inherit;
   }
+  .active {
+    border-bottom: 2px solid var(--background-dark);
+  }
   main {
     text-align: center;
     margin: auto;
@@ -185,4 +188,6 @@ import Head from "../components/Head.astro";
     padding: 2rem;
     border-radius: 1rem;
   }
+
+
 </style>
