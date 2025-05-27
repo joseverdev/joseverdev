@@ -23,9 +23,9 @@ const {
     <img class="project__img" src={img} alt="Imagen del proyecto" />
   </div>
   <div class="project__texts">
-    <h3>{title}</h3>
+    <h3 class="project__title">{title}</h3>
     <p>{description}</p>
-    <p>
+    <p class="project__tags">
       <b>
         {tags.join(", ")}
       </b>
@@ -130,11 +130,15 @@ const {
     color: var(--text-darktheme);
   }
 
-  @media (min-width: 720px) {
-    .projects h2 {
-      margin-bottom: 48px;
-    }
+  .project__title{
+    margin: 1rem 0px;
+  }
+  .project__tags{
+    margin: 1rem 0px;
+    font-size: 0.9rem;
+  }
 
+  @media (min-width: 720px) {
     .project {
       display: flex;
       gap: 16px;
