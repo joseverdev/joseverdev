@@ -1,0 +1,50 @@
+---
+const { icon, title, description, url } = Astro.props;
+---
+
+<a class="social-box" href={url} target="_blank" rel="noopener noreferrer">
+  <div class="social-box__container">
+    <div class="social-box__icon">
+      <div set:html={icon} />
+    </div>
+    <div class="social-box__texts">
+      <h3 class="social-box__title">{title}</h3>
+      <p class="social-box__description">{description}</p>
+    </div>
+  </div>
+</a>
+
+<style>
+  .social-box__icon {
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .social-box {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    background-color: var(--bg-dark-box);
+    text-align: left;
+  }
+  .social-box:hover {
+    border: 1px solid var(--orange);
+    transition: all 0.5s ease-in;
+  }
+  .social-box__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .social-box__description {
+    color: var(--text-grey);
+  }
+</style>

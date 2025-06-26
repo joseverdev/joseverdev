@@ -1,39 +1,74 @@
 ---
-import ToggleTheme from "./ToggleTheme.astro";
+import { Home, FolderCode, Brain, MailPlus } from "@lucide/astro";
+import IconLogo from "../icons/IconLogo.astro";
+
+const navItems = [
+  { path: "#inicio", label: "Inicio", icon: Home },
+  { path: "#proyectos", label: "Proyectos", icon: FolderCode },
+  { path: "#skills", label: "Skills", icon: Brain },
+  { path: "#contacto", label: "Contacto", icon: MailPlus },
+];
 ---
 
 <nav>
-  <ul class="navlist">
-    <li class="">
-      <a href="/" class="logo">
-        <img src="/favicon.svg" alt="Logo" class="logo" />
-      </a>
-    </li>
-    <li class="">
-      <a href="/" class="indexPath">Inicio</a>
-    </li>
-    <li>
-      <a href="/blog" class="blogPath">Blog</a>
-    </li>
-    <li>
-      <ToggleTheme />
-    </li>
-  </ul>
+  <div class="nav-container">
+    <div class="nav__logo-container">
+      <IconLogo size="2" />
+      <p class="nav__username">joseverdev</p>
+    </div>
+
+    <ul class="navlist">
+      {
+        navItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <li class={item.path === "/" ? "indexPath" : ""}>
+              <a
+                href={item.path}
+                class={item.path === "/" ? "item indexPath" : "item"}
+              >
+                <div class="navlist__icon">{Icon && <Icon size={18} />}</div>
+                <span class="navlist__label">{item.label}</span>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
 </nav>
 
 <script defer>
-  document.addEventListener("DOMContentLoaded", () => {
-    const path = window.location.pathname;
-    console.log(path);
-    if (path === "/") {
-      document.querySelector(".indexPath").classList.add("active");
-    } else if (path === "/blog" || path === "/blog/") {
-      document.querySelector(".blogPath").classList.add("active");
-    }
+  const $navLinks = document.querySelectorAll('.navlist a[href^="#"]');
+
+  $navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    });
   });
 </script>
 
 <style>
+  .nav__logo-container {
+    display: none;
+  }
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+  }
+
   .navlist {
     display: flex;
     justify-content: center;
@@ -43,6 +78,7 @@ import ToggleTheme from "./ToggleTheme.astro";
     width: 100%;
     list-style: none;
     position: relative;
+    color: #888888;
   }
   .logo {
     width: 56px;
@@ -55,16 +91,25 @@ import ToggleTheme from "./ToggleTheme.astro";
     width: 100%;
     height: 100%;
   }
+
   nav {
-    color: var(--text-dark);
-    background-color: var(--orange);
+    background-color: var(--background-dark);
+    border-top: 1px solid var(--border);
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
     height: 48px;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+  }
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .nav__username {
+    display: none;
+  }
+  .navlist__label {
+    user-select: none;
   }
   ul {
     height: 100%;
@@ -83,24 +128,69 @@ import ToggleTheme from "./ToggleTheme.astro";
   a {
     font-size: 14px;
     font-weight: 700;
+    position: relative;
+  }
+  a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--orange);
+    transition: width 0.3s ease;
+  }
+  a:hover::after {
+    width: 100%;
   }
 
-  @media (min-width: 720px) {
+  @media (min-width: 600px) {
     nav {
-      height: 42px;
-      padding: 8px;
-      position: initial;
-      max-width: 720px;
-      margin: auto;
-      margin-top: 24px;
-      border-radius: 16px;
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: fit-content;
+      border-bottom: 1px solid var(--border);
     }
-    ul {
-      width: 720px;
+    .nav-container {
+      display: flex;
+      gap: 4rem;
+      padding: 1rem 2rem;
     }
+    .navlist {
+      justify-content: space-evenly;
+    }
+    .navlist__label {
+      font-size: 1rem;
+      color: var(--text-white);
+    }
+    .navlist__icon {
+      display: none;
+    }
+  }
 
-    li:hover a:not(.active):not(.logo) {
-      border-bottom: 2px solid var(--background-dark);
+  @media (min-width: 1080px) {
+    .nav__logo-container {
+      align-items: center;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .nav-container {
+      align-items: center;
+      padding: 0.5rem 2rem;
+      justify-content: space-between;
+    }
+    .navlist {
+      justify-content: flex-end;
+      gap: 4rem;
+    }
+    .nav__username {
+      display: block;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.5rem;
     }
   }
 </style>
