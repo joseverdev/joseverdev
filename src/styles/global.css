@@ -8,7 +8,7 @@
 
 :root {
   --background-dark: #161616;
-  --bg-dark-box: #181818;
+  --bg-dark-box: #1d1d1d;
 
   --text-grey: #cccccc;
   --text-white: #ffffff;
@@ -39,11 +39,18 @@
   letter-spacing: 1px;
   background-color: var(--orange);
   color: white;
-  padding: 1.5rem 3rem;
+  padding: 1rem 2.5rem;
   border: none;
   margin-bottom: 1rem;
   display: block;
   text-transform: uppercase;
+  transition: all 0.3s ease-in;
+}
+.primary-button:hover {
+  background-color: transparent;
+  color: var(--orange);
+  outline: 2px solid var(--orange);
+  transition: all 0.3s ease-out;
 }
 
 .paragraph {

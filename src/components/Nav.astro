@@ -39,16 +39,6 @@ const navItems = [
 </nav>
 
 <script defer>
-  document.addEventListener("DOMContentLoaded", () => {
-    const path = window.location.pathname;
-    console.log(path);
-    if (path === "/") {
-      document.querySelector(".indexPath").classList.add("active");
-    } else if (path === "/blog" || path === "/blog/") {
-      document.querySelector(".blogPath").classList.add("active");
-    }
-  });
-
   const $navLinks = document.querySelectorAll('.navlist a[href^="#"]');
 
   $navLinks.forEach((link) => {
@@ -68,7 +58,7 @@ const navItems = [
 </script>
 
 <style>
-  .nav__logo-container{
+  .nav__logo-container {
     display: none;
   }
   .item {
@@ -78,8 +68,7 @@ const navItems = [
     justify-content: center;
     font-weight: 100;
   }
-  nav {
-  }
+
   .navlist {
     display: flex;
     justify-content: center;
@@ -112,7 +101,11 @@ const navItems = [
     left: 0;
     height: 48px;
   }
-  .nav__username{
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .nav__username {
     display: none;
   }
   .navlist__label {
@@ -135,6 +128,20 @@ const navItems = [
   a {
     font-size: 14px;
     font-weight: 700;
+    position: relative;
+  }
+  a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--orange);
+    transition: width 0.3s ease;
+  }
+  a:hover::after {
+    width: 100%;
   }
 
   @media (min-width: 600px) {
@@ -170,9 +177,14 @@ const navItems = [
       align-items: center;
       gap: 1rem;
     }
-    .nav-container{
+    .nav-container {
       align-items: center;
       padding: 0.5rem 2rem;
+      justify-content: space-between;
+    }
+    .navlist {
+      justify-content: flex-end;
+      gap: 4rem;
     }
     .nav__username {
       display: block;

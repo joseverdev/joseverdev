@@ -1,43 +1,35 @@
 ---
-import {} from "@lucide/astro";
 import SocialBox from "./SocialBox.astro";
-import {
-  LinkedIn,
-  Instagram,
-  Youtube,
-  Twitter,
-  Github,
-} from "../icons/SocialIcons";
 
 const socialLinks = [
   {
     title: "GitHub",
     url: "",
-    icon: Github,
+    icon: "🐙",
     description: "Explora mi codigo y mis proyectos open source",
   },
   {
     title: "LinkedIn",
     url: "https://www.linkedin.com/in/joseverdev/",
-    icon: LinkedIn,
+    icon: "💼",
     description: "Conéctate conmigo profesionalmente",
   },
   {
     title: "Twitter",
     url: "https://twitter.com/joseverdev",
-    icon: Twitter,
+    icon: "🐦",
     description: "Sígueme para tips y contenido sobre desarrollo",
   },
   {
     title: "Instagram",
     url: "https://www.instagram.com/joseverdev/",
-    icon: Instagram,
+    icon: "📸",
     description: "Detras de escenas del contenido creativo",
   },
   {
     title: "YouTube",
     url: "https://www.youtube.com/@joseverdev",
-    icon: Youtube,
+    icon: "📺",
     description: "Tutoriales y videos acerca de mis proyectos",
   },
 ];
@@ -57,7 +49,7 @@ const socialLinks = [
           Envíame un email y conversemos sobre tu próximo proyecto. Respondo en
           menos de 24 horas.
         </p>
-        <a href="mailto:hello@joseverdev.com" class="primary-button">
+        <a href="mailto:jmu3612@gmail.com" class="primary-button">
           Escribir Email
         </a>
       </div>
@@ -69,9 +61,14 @@ const socialLinks = [
   <h3 class="title-3">Redes sociales</h3>
   <div class="social-links">
     {
-      socialLinks.map(({ icon, title, description }) => {
+      socialLinks.map(({ icon, title, description, url }) => {
         return (
-          <SocialBox icon={icon} title={title} description={description} />
+          <SocialBox
+            icon={icon}
+            title={title}
+            description={description}
+            url={url}
+          />
         );
       })
     }
@@ -130,7 +127,7 @@ const socialLinks = [
   }
 
   @media (min-width: 1080px) {
-    .title-3{
+    .title-3 {
       text-align: center;
       font-size: 2rem;
       font-weight: bold;
@@ -139,7 +136,7 @@ const socialLinks = [
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
     }
-    .paragraph{
+    .paragraph {
       margin: 4rem auto;
       width: 700px;
     }
