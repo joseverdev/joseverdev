@@ -41,10 +41,13 @@ const skills = [
 </section>
 
 <style>
+  .skills {
+    /* height: 100vh; */
+  }
   .skills-container {
     display: flex;
     width: 320px;
-    max-width: 720px;
+    max-width: 1080px;
     margin: auto;
     flex-direction: column;
     gap: 32px;
@@ -68,5 +71,22 @@ const skills = [
     margin-right: 8px;
     font-size: 0.9rem;
     text-transform: uppercase;
+  }
+
+  @media (min-width: 600px) {
+    .skills-container {
+      width: 500px;
+    }
+  }
+
+  @media (min-width: 1080px) {
+    .skills-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: inherit;
+    }
+    .skill {
+      width: 32rem;
+    }
   }
 </style>

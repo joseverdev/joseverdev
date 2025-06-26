@@ -16,60 +16,6 @@ import "../styles/global.css";
 </html>
 
 <script defer>
-  const theme = localStorage.getItem("darkmode");
-  if (theme === "true") {
-    changeTheme();
-    document
-      .getElementById("darkmode")
-      .setAttribute("aria-label", "Activar tema claro");
-  } else {
-    localStorage.setItem("darkmode", "false");
-    document
-      .getElementById("darkmode")
-      .setAttribute("aria-label", "Activar tema oscuro");
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const $btnDarkMode = document.getElementById("darkmode");
-    $btnDarkMode.addEventListener("click", () => {
-      const darkmode = localStorage.getItem("darkmode");
-      if (darkmode === "true") {
-        localStorage.setItem("darkmode", "false");
-        changeTheme();
-        document
-          .getElementById("darkmode")
-          .setAttribute("aria-label", "Activar tema oscuro");
-      } else {
-        localStorage.setItem("darkmode", "true");
-        changeTheme();
-        document
-          .getElementById("darkmode")
-          .setAttribute("aria-label", "Activar tema claro");
-      }
-    });
-  });
-  function changeTheme() {
-    const $container = document.querySelector(".container");
-    document.querySelector(".moon").classList.toggle("none");
-    document.querySelector(".sun").classList.toggle("none");
-
-    $container.classList.toggle("darktheme");
-    document.querySelectorAll(".button").forEach((button) => {
-      button.classList.toggle("bg-dark");
-    });
-    document.querySelectorAll(".links").forEach((link) => {
-      link.classList.toggle("shadow-dark");
-    });
-    document.querySelectorAll(".project").forEach((project) => {
-      project.classList.toggle("project-dark");
-    });
-    document.querySelectorAll(".post").forEach((post) => {
-      post.classList.toggle("post-dark");
-    });
-    document.querySelectorAll(".tags").forEach((text) => {
-      text.classList.toggle("tags-dark");
-    });
-  }
 </script>
 
 <style >

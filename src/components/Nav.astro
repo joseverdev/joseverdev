@@ -1,6 +1,6 @@
 ---
-import ToggleTheme from "./ToggleTheme.astro";
 import { Home, FolderCode, Brain, MailPlus } from "@lucide/astro";
+import IconLogo from "../icons/IconLogo.astro";
 
 const navItems = [
   { path: "#inicio", label: "Inicio", icon: Home },
@@ -11,24 +11,31 @@ const navItems = [
 ---
 
 <nav>
-  <ul class="navlist">
-    {
-      navItems.map((item) => {
-        const Icon = item.icon;
-        return (
-          <li class={item.path === "/" ? "indexPath" : ""}>
-            <a
-              href={item.path}
-              class={item.path === "/" ? "item indexPath" : "item"}
-            >
-              {Icon && <Icon size={18} />}
-              <span>{item.label}</span>
-            </a>
-          </li>
-        );
-      })
-    }
-  </ul>
+  <div class="nav-container">
+    <div class="nav__logo-container">
+      <IconLogo size="2" />
+      <p class="nav__username">joseverdev</p>
+    </div>
+
+    <ul class="navlist">
+      {
+        navItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <li class={item.path === "/" ? "indexPath" : ""}>
+              <a
+                href={item.path}
+                class={item.path === "/" ? "item indexPath" : "item"}
+              >
+                <div class="navlist__icon">{Icon && <Icon size={18} />}</div>
+                <span class="navlist__label">{item.label}</span>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
 </nav>
 
 <script defer>
@@ -102,6 +109,12 @@ const navItems = [
     left: 0;
     height: 48px;
   }
+  .nav__username{
+    display: none;
+  }
+  .navlist__label {
+    user-select: none;
+  }
   ul {
     height: 100%;
     display: flex;
@@ -121,22 +134,48 @@ const navItems = [
     font-weight: 700;
   }
 
-  @media (min-width: 720px) {
+  @media (min-width: 600px) {
     nav {
-      height: 42px;
-      padding: 8px;
-      position: initial;
-      max-width: 720px;
-      margin: auto;
-      margin-top: 24px;
-      border-radius: 16px;
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: fit-content;
+      border-bottom: 1px solid var(--border);
     }
-    ul {
-      width: 720px;
+    .nav-container {
+      display: flex;
+      gap: 4rem;
+      padding: 1rem 2rem;
     }
+    .navlist {
+      justify-content: space-evenly;
+    }
+    .navlist__label {
+      font-size: 1rem;
+      color: var(--text-white);
+    }
+    .navlist__icon {
+      display: none;
+    }
+  }
 
-    li:hover a:not(.active):not(.logo) {
-      border-bottom: 2px solid var(--background-dark);
+  @media (min-width: 1080px) {
+    .nav__logo-container {
+      align-items: center;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .nav-container{
+      align-items: center;
+      padding: 0.5rem 2rem;
+    }
+    .nav__username {
+      display: block;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.5rem;
     }
   }
 </style>

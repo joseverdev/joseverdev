@@ -9,8 +9,12 @@
 :root {
   --background-dark: #161616;
   --bg-dark-box: #181818;
+  
   --text-grey: #cccccc;
+  --text-white: #ffffff;
+
   --orange: #ff6b35;
+
 
   --border: #333333;
   --text-grey-dark: #888888;
@@ -20,7 +24,7 @@
 }
 .container {
   text-align: left;
-  max-width: 720px;
+  max-width: 1080px;
   margin: auto;
   padding-bottom: 16px;
   border-radius: 16px;
@@ -116,7 +120,6 @@ p {
 }
 
 .bg-dark {
-  /* background-color: var(--beige-dark); */
   color: var(--text-dark);
 }
 
@@ -163,8 +166,7 @@ main {
   text-align: center;
   margin: auto;
   min-width: 300px;
-  max-width: 720px;
-  /* padding: 16px 16px 0px; */
+  max-width: 1080px;
 }
 
 .img-container img {
@@ -173,4 +175,10 @@ main {
 pre {
   padding: 2rem;
   border-radius: 1rem;
+}
+
+@media (min-width: 1080px){
+  .title-2{
+    font-size: 3rem;
+  }
 }

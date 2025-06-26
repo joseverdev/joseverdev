@@ -4,6 +4,7 @@ import IconLogo from "../icons/IconLogo.astro";
 ---
 
 <section id="inicio" class="presentation-container">
+  <!-- <div class="center"> -->
   <div class="logo">
     <IconLogo size={2} />
   </div>
@@ -18,9 +19,10 @@ import IconLogo from "../icons/IconLogo.astro";
     <a class="primary-button" href="#proyectos" id="projects-btn">
       VER PROYECTOS
     </a>
+    <SocialMedia />
   </div>
 
-  <SocialMedia />
+  <!-- </div> -->
 </section>
 
 <script>
@@ -79,22 +81,23 @@ import IconLogo from "../icons/IconLogo.astro";
   .projects-btn {
   }
 
-  @media (min-width: 720px) {
-    .perfil {
-      flex: 1;
-      height: 100%;
-      border-radius: initial;
-      width: 100%;
+  @media (min-width: 600px) {
+    .logo {
+      display: none;
     }
-    .perfil__img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
+    .presentation-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
-    .presentation {
+
+    /*
+     .presentation {
       flex: 1;
       text-align: left;
     }
+    
     .buttons-container {
       margin: 0;
     }
@@ -110,6 +113,11 @@ import IconLogo from "../icons/IconLogo.astro";
       flex-direction: row-reverse;
       align-items: center;
       margin: 32px auto;
+    } */
+  }
+  @media (min-width: 1080px) {
+    h1 {
+      font-size: 6rem;
     }
   }
 </style>
