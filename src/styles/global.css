@@ -9,12 +9,11 @@
 :root {
   --background-dark: #161616;
   --bg-dark-box: #181818;
-  
+
   --text-grey: #cccccc;
   --text-white: #ffffff;
 
   --orange: #ff6b35;
-
 
   --border: #333333;
   --text-grey-dark: #888888;
@@ -73,7 +72,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  /* TODO: article about this bug */
+  /* overflow-x: hidden; */
 }
 
 body {
@@ -177,8 +177,8 @@ pre {
   border-radius: 1rem;
 }
 
-@media (min-width: 1080px){
-  .title-2{
+@media (min-width: 1080px) {
+  .title-2 {
     font-size: 3rem;
   }
 }

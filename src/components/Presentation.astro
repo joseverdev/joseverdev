@@ -45,6 +45,7 @@ import IconLogo from "../icons/IconLogo.astro";
 <style>
   .presentation-container {
     height: 100vh;
+    overflow: auto;
   }
   .presentation {
     padding-top: 6rem;
@@ -53,11 +54,9 @@ import IconLogo from "../icons/IconLogo.astro";
   .logo {
     background-color: var(--background-dark);
     position: fixed;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
+    padding: 1rem;
+    width: 100%;
     border-bottom: 1px solid #333333;
-    width: 100vw;
     margin-bottom: 2rem;
   }
   .buttons-container {
