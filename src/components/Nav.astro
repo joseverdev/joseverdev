@@ -1,23 +1,33 @@
 ---
 import ToggleTheme from "./ToggleTheme.astro";
+import { Home, FolderCode, Brain, MailPlus } from "@lucide/astro";
+
+const navItems = [
+  { path: "#inicio", label: "Inicio", icon: Home },
+  { path: "#proyectos", label: "Proyectos", icon: FolderCode },
+  { path: "#skills", label: "Skills", icon: Brain },
+  { path: "#contacto", label: "Contacto", icon: MailPlus },
+];
 ---
 
 <nav>
   <ul class="navlist">
-    <li class="">
-      <a href="/" class="logo">
-        <img src="/favicon.svg" alt="Logo" class="logo" />
-      </a>
-    </li>
-    <li class="">
-      <a href="/" class="indexPath">Inicio</a>
-    </li>
-    <li>
-      <a href="/blog" class="blogPath">Blog</a>
-    </li>
-    <li>
-      <ToggleTheme />
-    </li>
+    {
+      navItems.map((item) => {
+        const Icon = item.icon;
+        return (
+          <li class={item.path === "/" ? "indexPath" : ""}>
+            <a
+              href={item.path}
+              class={item.path === "/" ? "item indexPath" : "item"}
+            >
+              {Icon && <Icon size={18} />}
+              <span>{item.label}</span>
+            </a>
+          </li>
+        );
+      })
+    }
   </ul>
 </nav>
 
@@ -31,9 +41,35 @@ import ToggleTheme from "./ToggleTheme.astro";
       document.querySelector(".blogPath").classList.add("active");
     }
   });
+
+  const $navLinks = document.querySelectorAll('.navlist a[href^="#"]');
+
+  $navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    });
+  });
 </script>
 
 <style>
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+  }
+  nav {
+  }
   .navlist {
     display: flex;
     justify-content: center;
@@ -43,6 +79,7 @@ import ToggleTheme from "./ToggleTheme.astro";
     width: 100%;
     list-style: none;
     position: relative;
+    color: #888888;
   }
   .logo {
     width: 56px;
@@ -55,16 +92,15 @@ import ToggleTheme from "./ToggleTheme.astro";
     width: 100%;
     height: 100%;
   }
+
   nav {
-    color: var(--text-dark);
-    background-color: var(--orange);
+    background-color: var(--background-dark);
+    border-top: 1px solid var(--border);
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
     height: 48px;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
   }
   ul {
     height: 100%;

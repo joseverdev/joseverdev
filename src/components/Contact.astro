@@ -1,0 +1,125 @@
+---
+import {} from "@lucide/astro";
+import SocialBox from "./SocialBox.astro";
+import {
+  LinkedIn,
+  Instagram,
+  Youtube,
+  Twitter,
+  Github,
+} from "../icons/SocialIcons";
+
+const socialLinks = [
+  {
+    title: "GitHub",
+    url: "",
+    icon: Github,
+    description: "Explora mi codigo y mis proyectos open source",
+  },
+  {
+    title: "LinkedIn",
+    url: "https://www.linkedin.com/in/joseverdev/",
+    icon: LinkedIn,
+    description: "Conéctate conmigo profesionalmente",
+  },
+  {
+    title: "Twitter",
+    url: "https://twitter.com/joseverdev",
+    icon: Twitter,
+    description: "Sígueme para tips y contenido sobre desarrollo",
+  },
+  {
+    title: "Instagram",
+    url: "https://www.instagram.com/joseverdev/",
+    icon: Instagram,
+    description: "Detras de escenas del contenido creativo",
+  },
+  {
+    title: "YouTube",
+    url: "https://www.youtube.com/@joseverdev",
+    icon: Youtube,
+    description: "Tutoriales y videos acerca de mis proyectos",
+  },
+];
+---
+
+<section id="contacto" class="contact">
+  <h2 class="title-2">Conectemos</h2>
+  <p class="paragraph">
+    ¿Tienes una idea en mente? Hablemos sobre cómo puedo ayudarte a hacerla
+    realidad.
+  </p>
+  <article class="contact__email">
+    <div class="contact__email__content">
+      <div class="contact__texts">
+        <h3>¿Listo para empezar?</h3>
+        <p>
+          Envíame un email y conversemos sobre tu próximo proyecto. Respondo en
+          menos de 24 horas.
+        </p>
+        <a href="mailto:hello@joseverdev.com" class="primary-button">
+          Escribir Email
+        </a>
+      </div>
+    </div>
+  </article>
+  <div class="divider">
+    <span class="divider__span">O sigueme en</span>
+  </div>
+  <div class="social-links">
+    {
+      socialLinks.map(({ icon, title, description }) => {
+        return (
+          <SocialBox icon={icon} title={title} description={description} />
+        );
+      })
+    }
+  </div>
+  <p class="paragraph">
+    Estoy siempre abierto a discutir nuevas oportunidades, proyectos
+    interesantes o simplemente charlar sobre tecnología. No dudes en
+    contactarme.
+  </p>
+</section>
+
+<style>
+  .contact {
+    padding: 0 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .title-3 {
+    text-align: left;
+  }
+  .contact__email {
+    color: var(--text-grey);
+    padding: 2rem;
+    background-color: var(--bg-dark-box);
+    border: 1px solid var(--border);
+  }
+  .contact__texts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .divider__span {
+    padding: 0 2rem;
+  }
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 4rem 0;
+  }
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+</style>

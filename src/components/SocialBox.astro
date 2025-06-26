@@ -1,0 +1,42 @@
+---
+const { icon, title, description } = Astro.props;
+---
+
+<article class="social-box">
+  <div class="social-box__container">
+    <div class="social-box__icon">
+
+      <div set:html={icon} />
+    </div>
+    <div class="social-box__texts">
+      <h3 class="social-box__title">{title}</h3>
+      <p class="social-box__description">{description}</p>
+    </div>
+  </div>
+</article>
+
+<style>
+  .social-box__icon {
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    background-color: var(--bg-dark-box);
+    text-align: left;
+  }
+  .social-box__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+</style>

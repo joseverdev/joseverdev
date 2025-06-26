@@ -2,6 +2,7 @@
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import Head from "../components/Head.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -71,123 +72,7 @@ import Head from "../components/Head.astro";
   }
 </script>
 
-<style is:global>
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+<style >
 
-  :root {
-    --background-light: #d8d0be;
-    --background-dark: #2a2622;
-    --text-dark: #27241e;
-    --text-light: #fcfbf2;
-    --beige: #d4c8b6;
-    --beige-dark: #c9baa4;
-    --orange: #e5a148;
-
-    --text-darktheme: #c5a360;
-    --bg-darktheme: #35322c;
-    --bg-hover-darktheme: #453f3a;
-  }
-  .none {
-    display: none;
-  }
-  .container {
-    max-width: 720px;
-    margin: auto;
-    margin-top: 24px;
-    padding-bottom: 16px;
-    border-radius: 16px;
-    background-color: var(--background-light);
-    transition: all 0.3s ease;
-    line-height: 1.6;
-  }
-
-  .darktheme {
-    background-color: var(--background-dark);
-    color: var(--text-darktheme);
-  }
-
-  .buttons svg {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-    margin-left: 8px;
-  }
-
-  html {
-    width: 100%;
-    margin: auto;
-  }
-  body {
-    font-family: "Libre Baskerville", serif;
-    background-color: var(--background-dark);
-    width: 100%;
-    color: var(--text-dark);
-  }
-
-  h1 {
-    font-size: 24px;
-    font-weight: 700;
-  }
-  h2 {
-    font-size: 20px;
-    margin: 32px 0;
-  }
-  p {
-    font-size: 16px;
-  }
-
-  .button {
-    border: none;
-    border-radius: 16px;
-    padding: 8px 16px;
-    color: var(--text-light);
-    font-size: 16px;
-    background-color: var(--background-dark);
-  }
-  .button:hover {
-    outline: 1px solid var(--text-dark);
-    color: var(--text-dark);
-    background-color: var(--orange);
-  }
-
-  .bg-dark {
-    background-color: var(--beige-dark);
-    color: var(--text-dark);
-  }
-
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  .active {
-    border-bottom: 2px solid var(--background-dark);
-  }
-  main {
-    text-align: center;
-    margin: auto;
-    min-width: 300px;
-    max-width: 720px;
-    padding: 16px 16px 0px;
-  }
-
-  .img-container img {
-    width: 100%;
-  }
-  pre {
-    padding: 2rem;
-    border-radius: 1rem;
-  }
-
-
+  
 </style>
