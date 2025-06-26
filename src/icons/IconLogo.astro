@@ -1,15 +1,18 @@
 ---
-const { size = 4 } = Astro.props;
+// Recibe el tamaño como número que representará píxeles
+const { size = 64 } = Astro.props;
 
+// Asegúrate de que sea un número
 const numericValue = parseFloat(size);
-const containerSize = `${numericValue + 0.5}rem`;
+const containerSize = `${numericValue}px`;
+const fontSize = `${numericValue * 0.8}px`; // La fuente será el 80% del tamaño del contenedor
 ---
 
 <div
   class="logo__container"
   style={`width: ${containerSize}; height: ${containerSize};`}
 >
-  <p class="logo__letter--dark" style={`font-size: ${numericValue}rem`}>J</p>
+  <p class="logo__letter--dark" style={`font-size: ${fontSize}`}>J</p>
 </div>
 
 <style>
@@ -23,6 +26,9 @@ const containerSize = `${numericValue + 0.5}rem`;
       -0.5px 0.5px 0px rgba(255, 255, 255, 0.2),
       0.5px 0.5px 0.5px rgba(255, 255, 255, 0.2),
       -4px 4px 1px hsla(0, 0%, 0%, 0.4);
+    line-height: 1;
+    margin: 0;
+    padding: 0;
   }
   .logo__container {
     user-select: none;
