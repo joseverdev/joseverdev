@@ -1,6 +1,5 @@
 ---
 import { Home, FolderCode, Brain, MailPlus } from "@lucide/astro";
-import IconLogo from "../icons/IconLogo.astro";
 
 const navItems = [
   { path: "#inicio", label: "Inicio", icon: Home },
@@ -13,7 +12,9 @@ const navItems = [
 <nav>
   <div class="nav-container">
     <div class="nav__logo-container">
-      <IconLogo size="2" />
+      <div class="nav__img-container">
+        <img class="nav__logo-img" src="/images/logo.png" alt="" />
+      </div>
       <p class="nav__username">joseverdev</p>
     </div>
 
@@ -105,6 +106,11 @@ const navItems = [
     max-width: 1400px;
     margin: 0 auto;
   }
+  .nav__logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .nav__username {
     display: none;
   }
@@ -158,15 +164,31 @@ const navItems = [
       gap: 4rem;
       padding: 1rem 2rem;
     }
+    .nav__img-container {
+      display: flex;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      height: 100%;
+    }
+    .nav__logo-img {
+      object-fit: scale-down;
+    }
     .navlist {
       justify-content: space-evenly;
+      height: 48px;
     }
     .navlist__label {
       font-size: 1rem;
-      color: var(--text-white);
+      color: var(--text-grey);
+      font-family: "JetBrains Mono", monospace;
     }
     .navlist__icon {
       display: none;
+    }
+    .nav__logo-container {
+      width: 48px;
+      display: block;
     }
   }
 
@@ -176,6 +198,11 @@ const navItems = [
       display: flex;
       align-items: center;
       gap: 1rem;
+    }
+    .nav__img-container {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
     }
     .nav-container {
       align-items: center;
@@ -188,6 +215,7 @@ const navItems = [
     }
     .nav__username {
       display: block;
+      font-family: "JetBrains Mono", monospace;
       text-transform: uppercase;
       font-weight: bold;
       font-size: 1.5rem;
