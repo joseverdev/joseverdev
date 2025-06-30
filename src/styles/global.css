@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -92,7 +108,10 @@ body {
   flex-direction: column;
 }
 
-h1 {
+h1,
+.title-2,
+.title-3 {
+  font-family: "JetBrains Mono", "Consolas", "Monaco", monospace;
   font-size: 3rem;
   font-weight: 700;
 }
