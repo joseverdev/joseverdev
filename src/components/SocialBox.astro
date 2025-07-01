@@ -1,14 +1,14 @@
 ---
-const { icon, title, description, url } = Astro.props;
+const { icon, name, description, url } = Astro.props;
 ---
 
 <a class="social-box" href={url} target="_blank" rel="noopener noreferrer">
   <div class="social-box__container">
     <div class="social-box__icon">
-      <div set:html={icon} />
+      <img class="social-box__img" src={icon} alt={name} />
     </div>
     <div class="social-box__texts">
-      <h3 class="social-box__title">{title}</h3>
+      <h3 class="social-box__title">{name}</h3>
       <p class="social-box__description">{description}</p>
     </div>
   </div>
@@ -16,12 +16,17 @@ const { icon, title, description, url } = Astro.props;
 
 <style>
   .social-box__icon {
-    width: 4rem;
-    height: 2rem;
+    max-width: 32px;
+    max-height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+  }
+  .social-box__img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
   }
   .social-box {
     cursor: pointer;

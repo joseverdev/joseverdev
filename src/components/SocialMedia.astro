@@ -1,43 +1,5 @@
 ---
-import {
-  LinkedIn,
-  Instagram,
-  Youtube,
-  Twitter,
-  Github,
-} from "../icons/SocialIcons";
-const socialLinks = [
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/joseverdev/",
-    icon: LinkedIn,
-    ariaLabel: "LinkedIn",
-  },
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com/joseverdev/",
-    icon: Instagram,
-    ariaLabel: "Instagram",
-  },
-  {
-    name: "Youtube",
-    url: "https://www.youtube.com/@joseverdev",
-    icon: Youtube,
-    ariaLabel: "Youtube",
-  },
-  {
-    name: "Twitter",
-    url: "https://x.com/joseverdev",
-    icon: Twitter,
-    ariaLabel: "Twitter ahora X",
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/joseverdev",
-    icon: Github,
-    ariaLabel: "GitHub",
-  },
-];
+import socialLinks from "../icons/SocialIcons";
 ---
 
 <ul class="links">
@@ -50,7 +12,7 @@ const socialLinks = [
           rel="noopener noreferrer"
           aria-label={ariaLabel}
         >
-          <Fragment set:html={icon} />
+          <img src={icon} alt={name} />
         </a>
       </li>
     ))
@@ -58,6 +20,10 @@ const socialLinks = [
 </ul>
 
 <style>
+  img {
+    width: 20px;
+    vertical-align: middle;
+  }
   .links {
     padding-top: 16px;
     padding-bottom: 16px;

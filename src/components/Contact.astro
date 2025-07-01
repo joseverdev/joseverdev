@@ -1,38 +1,7 @@
 ---
 import SocialBox from "./SocialBox.astro";
+import socialLinks from "@icons/SocialIcons.ts";
 
-const socialLinks = [
-  {
-    title: "GitHub",
-    url: "",
-    icon: "🐙",
-    description: "Explora mi codigo y mis proyectos open source",
-  },
-  {
-    title: "LinkedIn",
-    url: "https://www.linkedin.com/in/joseverdev/",
-    icon: "💼",
-    description: "Conéctate conmigo profesionalmente",
-  },
-  {
-    title: "Twitter",
-    url: "https://twitter.com/joseverdev",
-    icon: "🐦",
-    description: "Sígueme para tips y contenido sobre desarrollo",
-  },
-  {
-    title: "Instagram",
-    url: "https://www.instagram.com/joseverdev/",
-    icon: "📸",
-    description: "Detras de escenas del contenido creativo",
-  },
-  {
-    title: "YouTube",
-    url: "https://www.youtube.com/@joseverdev",
-    icon: "📺",
-    description: "Tutoriales y videos acerca de mis proyectos",
-  },
-];
 ---
 
 <section id="contacto" class="contact">
@@ -61,11 +30,11 @@ const socialLinks = [
   <h3 class="title-3">Redes sociales</h3>
   <div class="social-links">
     {
-      socialLinks.map(({ icon, title, description, url }) => {
+      socialLinks.map(({ icon, name, url, description }) => {
         return (
           <SocialBox
             icon={icon}
-            title={title}
+            name={name}
             description={description}
             url={url}
           />
@@ -86,7 +55,6 @@ const socialLinks = [
     border-bottom: 1px solid var(--border);
   }
   .title-3 {
-
   }
   .contact__email {
     color: var(--text-grey);
