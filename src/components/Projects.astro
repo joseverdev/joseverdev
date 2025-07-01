@@ -1,16 +1,17 @@
 ---
 import Project from "./Project.astro";
+import { Send } from "@lucide/astro";
 
 const projects = [
-  {
-    title: "Tabla de Costeo",
-    description:
-      "Verifica el costo de los ingredientes y empaques de tus recetas, calcula el valor real de tu producto y dependiendo del precio de venta, calcula el margen de ganancia.",
-    tags: ["React", "React-Router", "Tailwind CSS"],
-    repo: "https://github.com/joseverdev/tabla-costeo",
-    web: "https://tabla-costeo.netlify.app/",
-    icon: "💰",
-  },
+  // {
+  //   title: "Tabla de Costeo",
+  //   description:
+  //     "Verifica el costo de los ingredientes y empaques de tus recetas, calcula el valor real de tu producto y dependiendo del precio de venta, calcula el margen de ganancia.",
+  //   tags: ["React", "React-Router", "Tailwind CSS"],
+  //   repo: "https://github.com/joseverdev/tabla-costeo",
+  //   web: "https://tabla-costeo.netlify.app/",
+  //   icon: "💰",
+  // },
   // {
   //   title: "Task",
   //   description:
@@ -25,7 +26,8 @@ const projects = [
       "Aplicación de mensajería que permite a los usuarios enviar y recibir mensajes en tiempo real.",
     tags: ["React", "React-Router", "Node.js", "WebSockets", "PostgreSQL"],
     repo: "https://github.com/joseverdev/platzi-message",
-    icon: "💬",
+    icon: Send,
+    web: ''
   },
 ];
 ---
@@ -53,6 +55,7 @@ const projects = [
 <style>
   .projects__container {
     display: flex;
+    justify-content: center;
     width: 320px;
     max-width: 1080px;
     margin: auto;

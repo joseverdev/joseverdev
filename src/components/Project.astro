@@ -1,4 +1,6 @@
 ---
+import type { AstroComponent } from "@lucide/astro";
+
 interface ProjectProps {
   img: string;
   title: string;
@@ -6,7 +8,7 @@ interface ProjectProps {
   tags: string[];
   repo: string;
   web?: string;
-  icon: string;
+  icon: AstroComponent;
 }
 
 const {
@@ -16,46 +18,48 @@ const {
   tags = ["tag1", "tag2", "tag3"],
   repo = "",
   web = "",
-  icon = "",
 } = Astro.props as ProjectProps;
+
+const Icon = Astro.props.icon;
 ---
 
 <section class="project">
   <div class="icon">
-    <p class="icon__emoji">{icon}</p>
+    <Icon size={64} />
   </div>
-  <div class="description">
-    <div class="project__texts">
-      <h3 class="project__title">{title}</h3>
-      <p>{description}</p>
-    </div>
+<div class="description">
+  <div class="project__texts">
+    <h3 class="project__title">{title}</h3>
+    <p>{description}</p>
+  </div>
 
-    <div class="project__buttons">
-      {
-        web && (
-          <a
-            href={web}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project__link"
-            aria-label={"Ir sitio web del proyecto " + title}
-          >
-            Ver Sitio Web
-          </a>
-        )
-      }
-      <a
-        href={repo}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="project__link"
-        aria-label={"Ir repositorio del proyecto " + title}
-      >
-        Ver Repositorio
-      </a>
-    </div>
+  <div class="project__buttons">
+    {
+      web && (
+        <a
+          href={web}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project__link"
+          aria-label={"Ir sitio web del proyecto " + title}
+        >
+          Ver Sitio Web
+        </a>
+      )
+    }
+    <a
+      href={repo}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="project__link"
+      aria-label={"Ir repositorio del proyecto " + title}
+    >
+      Ver Repositorio
+    </a>
   </div>
+</div>
 </section>
+
 
 <style>
   .description {
