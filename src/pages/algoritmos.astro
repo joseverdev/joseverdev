@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getEntry, render } from "astro:content";
+
+const algorithms = await getEntry("algorithms", "algorithms");
+console.log("🚀 ~ algorithms:", algorithms);
+
+let Content;
+
+if (algorithms) {
+  ({ Content } = await render(algorithms));
+}
+---
+
+<Layout>
+  <main class="container">
+    {Content ? <Content /> : <p>No hay contenido...</p>}
+  </main>
+</Layout>

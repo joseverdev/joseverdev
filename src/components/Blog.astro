@@ -1,0 +1,22 @@
+---
+import Post from "src/components/Post.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<section id="blog" class="blog">
+  <h2 class="title-2">Blog</h2>
+  <p class="paragraph">
+    Comparto experiencias, tips,y tengo una serie de artículos sobre algoritmos
+    utilizando JavaScript.
+  </p>
+  <div class="posts">
+    <Post />
+  </div>
+</section>
+
+<style>
+  
+  .posts {
+    padding: 2rem;
+  }
+</style>

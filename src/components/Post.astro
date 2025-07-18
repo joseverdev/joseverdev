@@ -1,0 +1,99 @@
+---
+import { ArrowRight } from "@lucide/astro";
+---
+
+<article class="post">
+  <div class="post__img-container">
+    <img
+      class="post__img"
+      src="https://kinsta.com/es/wp-content/uploads/sites/8/2023/04/react-must-be-in-scope-when-using-jsx.jpg"
+      alt=""
+    />
+  </div>
+  <div class="post__description">
+    <div class="post_texts">
+      <div class="post_tags">
+        <p class="post_tag">React</p>
+        <p class="post_tag">Perfomance</p>
+      </div>
+      <h3 class="title-3">Debes mejorar esto para mas performance en React</h3>
+      <p class="post__sinopsis">
+        Consider using memoization, code splitting, and efficient state
+        management.
+      </p>
+      <div class="details">
+        <p>28 junio 2023</p>
+        <a href="" class="post__link">
+          Leer mas
+          <ArrowRight size={16} />
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-grey);
+  }
+  .post__link {
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .post_tag {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 20px;
+    color: var(--text-grey);
+    font-size: 0.8rem;
+    font-weight: thinner;
+    background-color: #61dafb20;
+  }
+  .post__sinopsis {
+    color: var(--text-grey);
+    line-height: 1.2;
+  }
+
+  .post__description {
+    padding: 1rem;
+  }
+  .title-3 {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    line-height: normal;
+    text-transform: initial;
+    margin-bottom: 1rem;
+  }
+
+  .post {
+    padding: 0px;
+    text-align: left;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease-out;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    /* background: rgba(255, 255, 255, 0.02); */
+    /* backdrop-filter: blur(5px); */
+  }
+
+  .post__img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(45deg, #1a1a1a, var(--border));
+    height: 10rem;
+    width: 100%;
+  }
+  .post__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
