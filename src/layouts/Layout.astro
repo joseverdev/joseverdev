@@ -3,6 +3,8 @@ import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import Head from "../components/Head.astro";
 import "../styles/global.css";
+
+const { nav = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,15 +21,16 @@ import "../styles/global.css";
       </div>
     </div>
     <div class="content-wrapper">
-      <Nav />
-      <slot />
+      {nav && <Nav />}
+      <main>
+        <slot />
+      </main>
       <Footer />
     </div>
   </body>
 </html>
 
-<script defer>
-</script>
+<script defer></script>
 
 <style>
   .background-container {
@@ -57,27 +60,27 @@ import "../styles/global.css";
   }
 
   .gradient-bg::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: radial-gradient(
-      circle at 20% 80%,
-      rgba(255, 107, 53, 0.09) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(255, 107, 53, 0.07) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 40%,
-      rgba(255, 107, 53, 0.05) 0%,
-      transparent 50%
-    );
+        circle at 20% 80%,
+        rgba(255, 107, 53, 0.09) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 107, 53, 0.07) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 40%,
+        rgba(255, 107, 53, 0.05) 0%,
+        transparent 50%
+      );
     opacity: 0.6;
   }
 
@@ -134,7 +137,8 @@ import "../styles/global.css";
   }
 
   @keyframes float1 {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate(0, 0) rotate(0deg);
     }
     33% {
@@ -146,7 +150,8 @@ import "../styles/global.css";
   }
 
   @keyframes float2 {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate(0, 0) rotate(0deg);
     }
     50% {
@@ -155,7 +160,8 @@ import "../styles/global.css";
   }
 
   @keyframes float3 {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate(0, 0) rotate(0deg);
     }
     25% {
@@ -167,7 +173,8 @@ import "../styles/global.css";
   }
 
   @keyframes float4 {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate(0, 0) rotate(0deg);
     }
     50% {
@@ -181,17 +188,17 @@ import "../styles/global.css";
       width: 200px;
       height: 200px;
     }
-    
+
     .shape-2 {
       width: 150px;
       height: 150px;
     }
-    
+
     .shape-3 {
       width: 100px;
       height: 100px;
     }
-    
+
     .shape-4 {
       width: 80px;
       height: 80px;

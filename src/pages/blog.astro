@@ -1,0 +1,73 @@
+---
+import { ArrowLeft } from "@lucide/astro";
+import HeaderMobile from "src/components/molecules/HeaderMobile.astro";
+import Post from "src/components/Post.astro";
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout nav={false}>
+  <HeaderMobile />
+  <section class="blog">
+    <h1>Blog</h1>
+    <div class="posts">
+      <Post
+        title="Algoritmos y estructuras de datos"
+        description="Aprende los conceptos básicos de algoritmos y estructuras de datos, fundamentales para la programación y el desarrollo de software."
+        tags={["Algoritmos", "Estructuras de datos", "Programación"]}
+        link="/algoritmos"
+      />
+    </div>
+
+    <div class="blog__button-container">
+      <a href="/" class="blog__back-btn">
+        <ArrowLeft size={16} />
+        Volver a inicio
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog {
+    padding-top: 72px;
+  }
+  .posts {
+    padding: 2rem;
+  }
+
+  .blog__button-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .blog__back-btn {
+    background-color: var(--background-dark);
+    border: 1px solid var(--border);
+    color: var(--text-grey);
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    min-width: 180px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .blog__back-btn:hover {
+    background-color: var(--bg-dark-box);
+    border-color: var(--text-grey-dark);
+    color: var(--text-white);
+    transform: translateY(-2px);
+  }
+
+  .blog__back-btn:active {
+    transform: translateY(0);
+  }
+</style>

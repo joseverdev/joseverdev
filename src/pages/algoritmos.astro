@@ -1,19 +1,29 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getEntry, render } from "astro:content";
+import HeaderMobile from "@/components/molecules/HeaderMobile.astro";
+import Layout from "@/layouts/Layout.astro";
 
-const algorithms = await getEntry("algorithms", "algorithms");
-console.log("🚀 ~ algorithms:", algorithms);
 
-let Content;
+import Algorithms from "@/content/algorithms.md";
 
-if (algorithms) {
-  ({ Content } = await render(algorithms));
-}
 ---
 
-<Layout>
-  <main class="container">
-    {Content ? <Content /> : <p>No hay contenido...</p>}
-  </main>
+<Layout nav={false}>
+  <HeaderMobile />
+  <section class="algorithms">
+    <h1 class="algorithms__title">Algoritmos y estructuras de datos</h1>
+    <!-- <Content /> -->
+    <Algorithms/>
+  </section>
 </Layout>
+
+<style>
+  .algorithms {
+    padding-top: 72px;
+  }
+  .algorithms__title {
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--text-white);
+    font-size: 1.5rem;
+  }
+</style>
