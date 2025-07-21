@@ -12,11 +12,45 @@ import Layout from "src/layouts/Layout.astro";
   <div class="posts">
     <Post />
   </div>
+
+  <div class="blog__button-container">
+    <button class="blog__view-all-btn"> Ver todos los artículos </button>
+  </div>
 </section>
 
 <style>
-  
   .posts {
     padding: 2rem;
+  }
+
+  .blog__button-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .blog__view-all-btn {
+    background-color: var(--background-dark);
+    border: 1px solid var(--border);
+    color: var(--text-grey);
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    min-width: 180px;
+  }
+
+  .blog__view-all-btn:hover {
+    background-color: var(--bg-dark-box);
+    border-color: var(--text-grey-dark);
+    color: var(--text-white);
+    transform: translateY(-2px);
+  }
+
+  .blog__view-all-btn:active {
+    transform: translateY(0);
   }
 </style>
