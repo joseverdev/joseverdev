@@ -1,29 +1,33 @@
 ---
 import { ArrowRight } from "@lucide/astro";
+export interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+}
+
+const {
+  title = "Título por defecto",
+  description = "Descripción por defecto.",
+  tags = [],
+  link = "#",
+} = Astro.props;
 ---
 
 <article class="post">
-  <div class="post__img-container">
-    <img
-      class="post__img"
-      src="https://kinsta.com/es/wp-content/uploads/sites/8/2023/04/react-must-be-in-scope-when-using-jsx.jpg"
-      alt=""
-    />
-  </div>
   <div class="post__description">
     <div class="post_texts">
-      <div class="post_tags">
-        <p class="post_tag">React</p>
-        <p class="post_tag">Perfomance</p>
-      </div>
-      <h3 class="title-3">Debes mejorar esto para mas performance en React</h3>
+      <h3 class="title-3">{title}</h3>
       <p class="post__sinopsis">
-        Consider using memoization, code splitting, and efficient state
-        management.
+        {description}
       </p>
+      <div class="post_tags">
+        {tags.map((tag) => <p class="post_tag">{tag}</p>)}
+      </div>
       <div class="details">
         <p>28 junio 2023</p>
-        <a href="" class="post__link">
+        <a href={link} class="post__link">
           Leer mas
           <ArrowRight size={16} />
         </a>
@@ -50,7 +54,7 @@ import { ArrowRight } from "@lucide/astro";
     padding: 2px 6px;
     border-radius: 20px;
     color: var(--text-grey);
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: thinner;
     background-color: #61dafb20;
   }
@@ -79,21 +83,5 @@ import { ArrowRight } from "@lucide/astro";
     border-radius: 8px;
     overflow: hidden;
     background-color: #1a1a1a;
-    /* background: rgba(255, 255, 255, 0.02); */
-    /* backdrop-filter: blur(5px); */
-  }
-
-  .post__img-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(45deg, #1a1a1a, var(--border));
-    height: 10rem;
-    width: 100%;
-  }
-  .post__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 </style>

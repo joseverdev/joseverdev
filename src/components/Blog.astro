@@ -1,6 +1,6 @@
 ---
 import Post from "src/components/Post.astro";
-import Layout from "src/layouts/Layout.astro";
+import { ArrowRight } from "@lucide/astro";
 ---
 
 <section id="blog" class="blog">
@@ -14,7 +14,11 @@ import Layout from "src/layouts/Layout.astro";
   </div>
 
   <div class="blog__button-container">
-    <button class="blog__view-all-btn"> Ver todos los artículos </button>
+    <a href="/blog" class="blog__view-all-btn">
+      
+      Ver todos los artículos
+      <ArrowRight size={16} />
+    </a>
   </div>
 </section>
 
@@ -41,6 +45,11 @@ import Layout from "src/layouts/Layout.astro";
     transition: all 0.3s ease;
     font-family: inherit;
     min-width: 180px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
   }
 
   .blog__view-all-btn:hover {

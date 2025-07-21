@@ -1,14 +1,10 @@
 ---
 import SocialMedia from "../components/SocialMedia.astro";
+import HeaderMobile from "./molecules/HeaderMobile.astro";
 ---
 
 <section id="inicio" class="presentation-container">
-  <div class="logo">
-    <div class="logo__container">
-      <img class="logo__img" src="/images/logo.png" alt="" />
-    </div>
-    <p>JOSEVERDEV</p>
-  </div>
+  <HeaderMobile/>
   <div class="presentation">
     <h1>DESARROLLO <br /> WEB ESCALABLE</h1>
     <h3 class="title-3">Joseverdev Fullstack Developer</h3>
@@ -52,26 +48,6 @@ import SocialMedia from "../components/SocialMedia.astro";
     padding-top: 6rem;
   }
 
-  .logo {
-    background-color: var(--background-dark);
-    position: fixed;
-    padding: 1rem;
-    width: 100%;
-    border-bottom: 1px solid #333333;
-    margin-bottom: 2rem;
-    z-index: 999;
-    display: flex;
-    gap: 1rem;
-  }
-  .logo__container {
-    width: 48px;
-    height: 48px;
-  }
-  .logo__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   .buttons-container {
     padding-top: 1rem;
     margin: auto;
@@ -103,9 +79,7 @@ import SocialMedia from "../components/SocialMedia.astro";
   }
 
   @media (min-width: 600px) {
-    .logo {
-      display: none;
-    }
+    
     .presentation-container {
       display: flex;
       flex-direction: column;
