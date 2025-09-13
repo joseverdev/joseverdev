@@ -2,11 +2,15 @@
 import { Home, FolderCode, Brain, MailPlus, BookOpen } from "@lucide/astro";
 
 const navItems = [
-  { path: "#inicio", label: "Inicio", icon: Home },
-  { path: "#proyectos", label: "Proyectos", icon: FolderCode },
-  { path: "#skills", label: "Skills", icon: Brain },
-  { path: "#blog", label: "Blog", icon: BookOpen },
-  { path: "#contacto", label: "Contacto", icon: MailPlus },
+  { path: "/", label: "Inicio", icon: Home },
+  { path: "/blog", label: "Blog", icon: BookOpen },
+  { path: "/linux", label: "Linux", icon: Brain },
+  { path: "/javascript", label: "JavaScript", icon: FolderCode },
+  
+  // { path: "#proyectos", label: "Proyectos", icon: FolderCode },
+  // { path: "#skills", label: "Skills", icon: Brain },
+  // { path: "#blog", label: "Blog", icon: BookOpen },
+  // { path: "#contacto", label: "Contacto", icon: MailPlus },
 ];
 ---
 
@@ -40,20 +44,12 @@ const navItems = [
   </div>
 </nav>
 
-<script defer>
-  const $navLinks = document.querySelectorAll('.navlist a[href^="#"]');
-
-  $navLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      const targetId = this.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
-
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-        });
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.navlist a').forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
       }
     });
   });
@@ -148,7 +144,8 @@ const navItems = [
     background: var(--orange);
     transition: width 0.3s ease;
   }
-  a:hover::after {
+  a:hover::after,
+  a.active::after {
     width: 100%;
   }
 
