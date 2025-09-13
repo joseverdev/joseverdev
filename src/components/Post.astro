@@ -49,9 +49,14 @@ const {
     align-items: center;
     gap: 0.5rem;
   }
+  .post__link:hover {
+    color: var(--orange);
+  }
+
   .post_tag {
     display: inline-block;
     padding: 2px 6px;
+    margin-right: 4px;
     border-radius: 20px;
     color: var(--text-grey);
     font-size: 0.7rem;
@@ -75,6 +80,7 @@ const {
   }
 
   .post {
+    width: 100%;
     padding: 0px;
     text-align: left;
     transition: all 0.3s ease;
@@ -83,5 +89,11 @@ const {
     border-radius: 8px;
     overflow: hidden;
     background-color: #1a1a1a;
+    max-width: 720px;
+  }
+  .post:hover {
+    box-shadow: 0 4px 24px 0 rgba(251, 197, 97, 0.15);
+    border-color: var(--orange);
+    transform: translateY(-2px) scale(1.01);
   }
 </style>
