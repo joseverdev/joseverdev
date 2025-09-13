@@ -1,4 +1,5 @@
 ---
+import Nav from "@components/Nav.astro";
 import { ArrowLeft } from "@lucide/astro";
 import HeaderMobile from "src/components/molecules/HeaderMobile.astro";
 import Post from "src/components/Post.astro";
@@ -7,6 +8,7 @@ import Layout from "src/layouts/Layout.astro";
 
 <Layout nav={false} customBackground={true} pdBottom={false}>
   <HeaderMobile hidden={false} />
+  <Nav />
   <section class="blog">
     <h1>Blog</h1>
     <hr class="">
