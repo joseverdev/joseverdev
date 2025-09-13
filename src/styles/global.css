@@ -35,6 +35,11 @@
   --border: #333333;
   --text-grey-dark: #888888;
 }
+
+body {
+  background-color: var(--bg-dark-light);
+}
+
 .none {
   display: none;
 }
@@ -102,7 +107,7 @@ body {
 
 body {
   font-family: "Inter", sans-serif;
-  background: var(--background-dark);
+  background: var(--bg-dark-light);
   color: #fff;
   min-height: 100vh;
   display: flex;
