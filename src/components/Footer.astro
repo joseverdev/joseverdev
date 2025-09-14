@@ -1,4 +1,8 @@
-<footer>
+---
+const { pdBottom = true } = Astro.props;
+---
+
+<footer class={pdBottom ? "" : "pd-bottom"}>
   <p>© 2025 José Ever Muñoz | joseverdev | Todos los derechos reservados</p>
 </footer>
 
@@ -17,6 +21,10 @@
   footer p {
     margin: 0;
     font-size: 14px;
+  }
+
+  .pd-bottom {
+    padding-bottom: 3rem;
   }
 
   @media (min-width: 768px) {

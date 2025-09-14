@@ -1,30 +1,36 @@
 ---
-
+const { hidden = true } = Astro.props;
 ---
 
-<div class="logo">
+<div class={`logo ${hidden ? "logo--hideable" : "logo--always-visible"}`}>
   <div class="logo__container">
     <img class="logo__img" src="/images/logo.png" alt="" />
   </div>
   <a href="/" class="logo__username">JOSEVERDEV</a>
 </div>
+
 <style>
   .logo {
     background-color: var(--background-dark);
     position: fixed;
+    top: 0; /* Fijo arriba */
+    left: 0; /* Desde el borde izquierdo */
+    right: 0; /* Hasta el borde derecho */
+    width: 100%; /* Ocupa todo el ancho */
     padding: 0.5rem 1rem;
-    width: 100%;
     border-bottom: 1px solid #333333;
-    margin-bottom: 2rem;
     z-index: 999;
     display: flex;
     gap: 1rem;
     align-items: center;
+    box-sizing: border-box; /* Incluye padding en el ancho total */
   }
+
   .logo__container {
     width: 38px;
     height: 38px;
   }
+
   .logo__img {
     width: 100%;
     height: 100%;
@@ -42,8 +48,12 @@
   }
 
   @media (min-width: 600px) {
-    .logo {
+    .logo--hideable {
       display: none;
+    }
+
+    .logo--always-visible {
+      display: flex;
     }
   }
 </style>

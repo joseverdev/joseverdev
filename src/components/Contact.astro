@@ -1,12 +1,11 @@
 ---
 import SocialBox from "./SocialBox.astro";
 import socialLinks from "@icons/SocialIcons.ts";
-
 ---
 
 <section id="contacto" class="contact">
   <h2 class="title-2">Conectemos</h2>
-  <p class="paragraph">
+  <p class="paragraph text">
     ¿Tienes una idea en mente? Hablemos sobre cómo puedo ayudarte a hacerla
     realidad.
   </p>
@@ -50,9 +49,15 @@ import socialLinks from "@icons/SocialIcons.ts";
 </section>
 
 <style>
+  .paragraph.text {
+    margin-top: 0px;
+  }
   .contact {
     padding: 0 2rem;
     border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .title-3 {
   }
@@ -61,6 +66,7 @@ import socialLinks from "@icons/SocialIcons.ts";
     padding: 2rem;
     background-color: var(--bg-dark-box);
     border: 1px solid var(--border);
+    max-width: 720px;
   }
   .contact__texts {
     display: flex;
@@ -87,6 +93,9 @@ import socialLinks from "@icons/SocialIcons.ts";
     flex-direction: column;
     gap: 1rem;
     margin-bottom: 2rem;
+  }
+  .text {
+    margin-top: 0px;
   }
 
   @media (min-width: 500px) {

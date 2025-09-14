@@ -112,8 +112,9 @@ const Icon = Astro.props.icon;
     backdrop-filter: blur(5px);
   }
   .project:hover {
-    border: 1px solid var(--orange);
-    transition: all 0.3s ease-in;
+    box-shadow: 0 4px 24px 0 rgba(251, 197, 97, 0.15);
+    border-color: var(--orange);
+    transform: translateY(-2px) scale(1.01);
   }
   .project-dark:hover {
     background-color: var(--bg-hover-darktheme);
