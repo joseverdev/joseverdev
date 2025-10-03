@@ -1,0 +1,34 @@
+---
+import "@/styles/markdown.css";
+import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import HeaderMobile from "@/components/molecules/HeaderMobile.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout nav={true}>
+  <HeaderMobile />
+  <section class="blog">
+    <div class="blog__content">
+      <Content />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog {
+    margin: auto;
+    padding-top: 96px;
+    text-align: left;
+    max-width: 90%;
+  }
+</style>

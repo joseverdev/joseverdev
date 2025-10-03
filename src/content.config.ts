@@ -12,4 +12,12 @@ const algorithms = defineCollection({
   }),
 });
 
-export const collections = {algorithms};
+const posts = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/posts" }),
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+  }),
+});
+
+export const collections = { algorithms, posts };

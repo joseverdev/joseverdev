@@ -1,7 +1,9 @@
 ---
 title: 'Guia para dar solucion al error "Functions are not valid as a React child"'
 tags: ["React", "React-Router", "Errores-Comunes", "Debugging"]
+date: "2024-06-15"
 ---
+
 # Error: Functions are not valid as a React child
 
 Al momento de renderizar un componente en React, me apareció este error:
