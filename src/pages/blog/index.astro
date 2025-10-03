@@ -7,7 +7,6 @@ import Layout from "src/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("posts");
-console.log("🚀 ~ posts:", posts);
 ---
 
 <Layout nav={false} customBackground={true} pdBottom={false}>
