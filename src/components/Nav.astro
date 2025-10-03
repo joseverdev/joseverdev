@@ -1,27 +1,31 @@
 ---
-import { Home, FolderCode, Brain, MailPlus, BookOpen,Terminal } from "@lucide/astro";
+import {
+  Home,
+  FolderCode,
+  Brain,
+  MailPlus,
+  BookOpen,
+  Terminal,
+} from "@lucide/astro";
 
 const navItems = [
   { path: "/", label: "Inicio", icon: Home },
   { path: "/blog", label: "Blog", icon: BookOpen },
   { path: "/linux", label: "Linux", icon: Terminal },
   { path: "/javascript", label: "JS", icon: FolderCode },
-  {path: '/algoritmos', label: 'Algoritmos', icon: Brain},
-  
-  // { path: "#proyectos", label: "Proyectos", icon: FolderCode },
-  // { path: "#skills", label: "Skills", icon: Brain },
-  // { path: "#blog", label: "Blog", icon: BookOpen },
-  // { path: "#contacto", label: "Contacto", icon: MailPlus },
+  { path: "/algoritmos", label: "Algoritmos", icon: Brain },
 ];
 ---
 
 <nav>
   <div class="nav-container">
-    <div class="nav__logo-container">
-      <div class="nav__img-container">
-        <img class="nav__logo-img" src="/images/logo.png" alt="" />
-      </div>
-      <p class="nav__username">joseverdev</p>
+    <div class="">
+      <a class="nav__logo-container" href="/">
+        <div class="nav__img-container">
+          <img class="nav__logo-img" src="/images/logo.png" alt="" />
+        </div>
+        <p class="nav__username">joseverdev</p>
+      </a>
     </div>
 
     <ul class="navlist">
@@ -46,18 +50,18 @@ const navItems = [
 </nav>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const currentPath = window.location.pathname.replace(/\/$/, '');
-    document.querySelectorAll('.navlist a').forEach(link => {
-      if (link.getAttribute('href') === currentPath) {
-        link.classList.add('active');
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname.replace(/\/$/, "");
+    document.querySelectorAll(".navlist a").forEach((link) => {
+      if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
       }
     });
 
     if (window.innerWidth > 600) {
-      document.querySelectorAll('.navlist__label').forEach(label => {
-        if (label.textContent === 'JS') {
-          label.textContent = 'Javascript';
+      document.querySelectorAll(".navlist__label").forEach((label) => {
+        if (label.textContent === "JS") {
+          label.textContent = "Javascript";
         }
       });
     }
@@ -138,12 +142,19 @@ const navItems = [
     align-items: center;
   }
 
-  a {
+  .logo-link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+
+  .navlist a {
     font-size: 14px;
     font-weight: 700;
     position: relative;
   }
-  a::after {
+  .navlist a::after {
     content: "";
     position: absolute;
     bottom: -4px;
@@ -153,8 +164,8 @@ const navItems = [
     background: var(--orange);
     transition: width 0.3s ease;
   }
-  a:hover::after,
-  a.active::after {
+  .navlist a:hover::after,
+  .navlist a.active::after {
     width: 100%;
   }
 
@@ -204,8 +215,9 @@ const navItems = [
   @media (min-width: 1080px) {
     .nav__logo-container {
       align-items: center;
+      width: 100%;
+      height: 100%;
       display: flex;
-      align-items: center;
       gap: 1rem;
     }
     .nav__img-container {
