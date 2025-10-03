@@ -1,18 +1,5 @@
 h1 {
-  margin: 2rem;
-}
-
-algorithms {
-  padding: 72px 1rem 0;
-  text-align: left;
-}
-.algorithms__content {
-  text-align: left;
-  color: var(--text-white);
-}
-
-.algorithms__content h1 {
-  font-size: 1.5rem;
-  text-transform: capitalize;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
