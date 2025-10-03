@@ -11,29 +11,24 @@ const {
   title = "Título por defecto",
   description = "Descripción por defecto.",
   tags = [],
-  link = "#",
+  link = "",
 } = Astro.props;
 ---
 
 <article class="post">
-  <div class="post__description">
-    <div class="post_texts">
-      <h3 class="title-3">{title}</h3>
-      <p class="post__sinopsis">
-        {description}
-      </p>
-      <div class="post_tags">
-        {tags.map((tag) => <p class="post_tag">{tag}</p>)}
-      </div>
-      <div class="details">
-        <p>28 junio 2023</p>
-        <a href={link} class="post__link">
-          Leer mas
-          <ArrowRight size={16} />
-        </a>
+  <a href={link}>
+    <div class="post__description">
+      <div class="post_texts">
+        <h3 class="title-3">{title}</h3>
+        <div class="post_tags">
+          {tags.map((tag) => <p class="post_tag">{tag}</p>)}
+        </div>
+        <div class="details">
+          <p>28 junio 2023</p>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </article>
 
 <style>

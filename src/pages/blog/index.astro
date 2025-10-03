@@ -4,6 +4,9 @@ import { ArrowLeft } from "@lucide/astro";
 import HeaderMobile from "src/components/molecules/HeaderMobile.astro";
 import Post from "src/components/Post.astro";
 import Layout from "src/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
 ---
 
 <Layout nav={false} customBackground={true} pdBottom={false}>
@@ -11,21 +14,22 @@ import Layout from "src/layouts/Layout.astro";
   <Nav />
   <section class="blog">
     <h1>Blog</h1>
-    <p>Aqui escribo mis pensamientos, reflexiones y experiencias sobre diversos temas.</p>
-    <hr class="">
+    <p>
+      Aqui escribo mis pensamientos, reflexiones y experiencias sobre diversos
+      temas.
+    </p>
+    <hr class="" />
     <div class="posts">
-      <Post
-        title="Algoritmos y estructuras de datos"
-        description="Aprende los conceptos básicos de algoritmos y estructuras de datos, fundamentales para la programación y el desarrollo de software."
-        tags={["Algoritmos", "Estructuras de datos", "Programación"]}
-        link="/algoritmos"
-      />
-      <Post
-        title="Reflexiones y anécdotas personales"
-        description="Un espacio donde comparto pensamientos, experiencias de viajes, historias cotidianas y reflexiones sobre la vida, lejos del código y más cerca de lo personal."
-        tags={["Reflexiones", "Viajes", "Anécdotas", "Vida"]}
-        link="/reflexiones"
-      />
+      {
+        posts.map((post) => (
+          <Post
+            title={post.data.title}
+            description={post.data.description || "Descripción por defecto."}
+            tags={post.data.tags || []}
+            link={`/blog/${post.id}`}
+          />
+        ))
+      }
     </div>
 
     <div class="blog__button-container">

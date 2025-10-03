@@ -118,7 +118,6 @@ h1,
 .title-2,
 .title-3 {
   font-family: "JetBrains Mono", "Consolas", "Monaco", monospace;
-  text-transform: uppercase;
 }
 h1 {
   font-size: 2.5rem;
