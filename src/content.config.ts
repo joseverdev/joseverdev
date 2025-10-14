@@ -2,7 +2,6 @@ import { defineCollection, z } from "astro:content";
 
 import { glob, file } from "astro/loaders";
 
-// 3. Define your collection(s)
 const algorithms = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "src/content/algorithms" }),
   schema: z.object({
@@ -20,4 +19,12 @@ const posts = defineCollection({
   }),
 });
 
-export const collections = { algorithms, posts };
+const jsPosts = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/js" }),
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+  }),
+});
+
+export const collections = { algorithms, posts, jsPosts };
