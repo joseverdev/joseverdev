@@ -21,7 +21,11 @@ console.log(jsPosts);
     <div class="posts">
       {
         jsPosts.map((post) => (
-          <Post title={post.data.title} link={`/javascript/${post.id}`} />
+          <Post
+            title={post.data.title}
+            date={post.data.date}
+            link={`/javascript/${post.id}`}
+          />
         ))
       }
     </div>
