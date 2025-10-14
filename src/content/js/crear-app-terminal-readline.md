@@ -1,6 +1,6 @@
 ---
 title: "Como crear una app de terminal con readline en Node.js"
-date: "2024-06-20"
+date: "2025-10-14"
 ---
 
 # Como crear una app de terminal con readline en Node.js
