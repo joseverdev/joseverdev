@@ -101,10 +101,8 @@ h1 {
     rgba(255, 255, 255, 0.03),
     rgba(255, 255, 255, 0.01)
   );
-  padding: 0.18rem 0.5rem;
   border-radius: 6px;
   margin-bottom: 0.6rem;
-  margin-left: 0.2rem;
 }
 
 /* Base code styling */
