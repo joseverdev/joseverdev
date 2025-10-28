@@ -1,9 +1,9 @@
 ---
 import Nav from "@components/Nav.astro";
 import { ArrowLeft } from "@lucide/astro";
-import HeaderMobile from "src/components/molecules/HeaderMobile.astro";
-import Post from "src/components/Post.astro";
-import Layout from "src/layouts/Layout.astro";
+import HeaderMobile from "@components/molecules/HeaderMobile.astro";
+import Post from "@components/Post.astro";
+import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("posts");
@@ -22,12 +22,7 @@ const posts = await getCollection("posts");
     <div class="posts">
       {
         posts.map((post) => (
-          <Post
-            title={post.data.title}
-            description={post.data.description || "Descripción por defecto."}
-            tags={post.data.tags || []}
-            link={`/blog/${post.id}`}
-          />
+          <Post title={post.data.title} link={`/blog/${post.id}`} date="" />
         ))
       }
     </div>
